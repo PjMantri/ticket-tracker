@@ -1,0 +1,23 @@
+<div>
+	<h4>Create new User</h4>
+	<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)">
+		<div>
+			<label for="nameInput">Name</label>
+			<input type="text" id="nameInput" placeholder="Name" [formControl]="name">
+		</div>
+		<div>
+			<label for="emailInput">Email</label>
+			<input type="text" id="emailInput" placeholder="Email" [formControl]="email">
+		</div>
+		<div>
+			<label for="typeInput">Type</label>
+			<div>
+				<select id="type" placeholder="Type" [formControl]="type">
+                    <option value="customer">Customer</option>
+                    <option value="csr">Customer Service Representative</option>
+                </select>
+			</div>
+		</div>
+		<button type="submit">Submit</button>
+	</form>
+</div>
