@@ -1,6 +1,10 @@
-<h1>
-  {{title}}
-  <app-create-user> </app-create-user>
-</h1>
+<div>
+  <a [routerLink]="['/home']"> {{title}}</a>
+  <a [routerLink]="['/home']">Home</a>
+  <a [routerLink]="['/create-ticket']">Create Ticket</a>
+  <a [routerLink]="['/users']">Users</a>
+</div>
 
-
+<div>
+  <router-outlet></router-outlet>
+</div>
