@@ -7,6 +7,8 @@ import {
   AbstractControl
 } from '@angular/forms';
 
+import { Http, Response } from '@angular/http';
+
 @Component({
   selector: 'app-create-user',
   templateUrl: './create-user.component.html',
@@ -19,7 +21,10 @@ export class CreateUserComponent implements OnInit {
   email: AbstractControl;
   type: AbstractControl;
 
-  constructor(fb: FormBuilder) {
+  data: Object;
+  http: Http;
+
+  constructor(fb: FormBuilder, private http1: Http) {
     this.myForm = fb.group({
       'name': [''],
       'email': [''],
@@ -28,13 +33,25 @@ export class CreateUserComponent implements OnInit {
     this.name = this.myForm.controls['name'];
     this.email = this.myForm.controls['email'];
     this.type = this.myForm.controls['type'];
+
+    this.http = http1;
   }
+
   ngOnInit() {
   }
 
-  onSubmit(value: string): boolean {
+  onSubmit(value: string): void {
     console.log('you submitted value: ', value);
-    return false;
+    this.makeRequest();
+    console.log(this.data);
+  }
+
+//todo remove this from here
+  makeRequest(): void {
+    this.http.request('http://localhost:8080/user/3')
+      .subscribe((res: Response) => {
+        this.data = res.json();
+      });
   }
 
 
