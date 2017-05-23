@@ -21,7 +21,8 @@ import { CreateTicketComponent } from './create-ticket/create-ticket.component';
 import { UsersComponent } from './users/users.component';
 import { TicketComponent } from './ticket/ticket.component';
 import { UserComponent } from './user/user.component';
-import {UsersService} from './users/users.service';
+import { UsersService } from './users/users.service';
+import { CreateUserService } from "app/create-user/create-user.service";
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -38,7 +39,7 @@ const routes: Routes = [
     UsersComponent,
     TicketComponent,
     UserComponent
- ],
+  ],
   imports: [
     BrowserModule,
     FormsModule,
@@ -49,6 +50,7 @@ const routes: Routes = [
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy },
     UsersService,
+    CreateUserService,
   ],
   bootstrap: [AppComponent]
 })

@@ -10,13 +10,12 @@ export class Ticket {
     createdBy: User;
     assignedTo: User;
 
-    constructor(status: string, area: string, description: string,
-        customer: User, createdBy: User, assignedTo: User) {
-        this.status = status;
-        this.area = area;
-        this.description = description;
-        this.customer = customer;
-        this.createdBy = createdBy;
-        this.assignedTo = assignedTo;
+    constructor(obj?: any) {
+        this.status = obj && obj.status || null;
+        this.area = obj && obj.area || null;
+        this.description = obj && obj.description || null;
+        this.customer = obj && obj.customer || null;
+        this.createdBy = obj && obj.createdBy || null;
+        this.assignedTo = obj && obj.assignedTo || null;
     }
 }
