@@ -1,3 +1,46 @@
-<p>
-  create-ticket works!
-</p>
+<div>
+  <h4>Create new Ticket</h4>
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)">
+    <div>
+      <label for="statusInput">Status</label>
+      <input type="text" id="statusInput" placeholder="Status" [formControl]="status">
+    </div>
+    <div>
+      <label for="areaInput">Area</label>
+      <input type="text" id="areaInput" placeholder="Area" [formControl]="area">
+    </div>
+
+    <div>
+      <label for="descriptionInput">Description</label>
+      <input type="text" id="descriptionInput" placeholder="Description" [formControl]="description">
+    </div>
+
+    <div>
+      <label for="customerInput">Customer</label>
+      <div>
+        <select id="customer" placeholder="Customer" [formControl]="customer">
+          <option *ngFor="let individualUser of users" value=individualUser>{{individualUser.name}}</option>
+                </select>
+      </div>
+    </div>
+
+    <div>
+      <label for="createdByInput">Created By</label>
+      <div>
+        <select id="createdBy" placeholder="Created By" [formControl]="createdBy">
+                    <option *ngFor="let individualUser of users" value=individualUser>{{individualUser.name}}</option>
+                </select>
+      </div>
+    </div>
+
+    <div>
+      <label for="assignedToInput">Assigned To</label>
+      <div>
+        <select id="assignedTo" placeholder="Assigned To" [formControl]="assignedTo">
+                     <option *ngFor="let individualUser of users" value=individualUser>{{individualUser.name}}</option>
+                </select>
+      </div>
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+</div>
