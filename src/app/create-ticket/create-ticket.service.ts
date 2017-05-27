@@ -1,6 +1,6 @@
 
-import { User } from "app/user.module";
-import { Ticket } from "app/ticket.module";
+import { User } from "app/user/user.module";
+import { Ticket } from "app/ticket/ticket.module";
 
 import {
     HttpModule,

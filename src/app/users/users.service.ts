@@ -1,5 +1,5 @@
 
-import { User } from "app/user.module";
+import { User } from "app/user/user.module";
 import {
     HttpModule,
     Http,

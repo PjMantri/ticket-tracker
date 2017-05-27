@@ -24,6 +24,8 @@ import { UserComponent } from './user/user.component';
 import { UsersService } from './users/users.service';
 import { CreateUserService } from "app/create-user/create-user.service";
 import { CreateTicketService } from "app/create-ticket/create-ticket.service";
+import { TicketsComponent } from './tickets/tickets.component';
+import { TicketsService } from "app/tickets/tickets.service";
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -39,7 +41,8 @@ const routes: Routes = [
     CreateTicketComponent,
     UsersComponent,
     TicketComponent,
-    UserComponent
+    UserComponent,
+    TicketsComponent
   ],
   imports: [
     BrowserModule,
@@ -53,6 +56,7 @@ const routes: Routes = [
     UsersService,
     CreateUserService,
     CreateTicketService,
+    TicketsService,
   ],
   bootstrap: [AppComponent]
 })

@@ -1,11 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import {
-  HttpModule,
-  Http,
-  Response,
-  RequestOptions,
-  Headers
-} from '@angular/http';
+import { Component, OnInit } from '@angular/core';
 import { UsersService } from "app/users/users.service";
 import { User } from "app/user/user.module";
 
