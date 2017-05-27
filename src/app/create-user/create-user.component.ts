@@ -35,30 +35,17 @@ export class CreateUserComponent implements OnInit {
     this.email = this.myForm.controls['email'];
     this.type = this.myForm.controls['type'];
     this.createUserService = createUserService1;
-    this.user=new User();
+    this.user = new User();
   }
 
   ngOnInit() {
   }
 
-  onSubmit(value: string): void {
-    console.log('you submitted value: ', value);
-
-    console.log('you submitted value of name: ', this.name.value);
-
-      this. user.name = this.name.value;
-     this.user.email = this.email.value;
-      this.user.type = this.type.value;
+  onSubmit(): void {
+    this.user.name = this.name.value;
+    this.user.email = this.email.value;
+    this.user.type = this.type.value;
     this.createUserService.makePost(this.user);
+    this.myForm.reset();
   }
-
-  //todo remove this from here
-  // makeRequest(): void {
-  //   this.http.request('http://localhost:8080/user/3')
-  //     .subscribe((res: Response) => {
-  //       this.data = res.json();
-  //     });
-  // }
-
-
 }

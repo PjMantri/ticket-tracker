@@ -8,9 +8,10 @@ import {
 } from '@angular/forms';
 
 import { Http, Response } from '@angular/http';
-import { CreateUserService } from "app/create-user/create-user.service";
+import { CreateTicketService } from "app/create-ticket/create-ticket.service";
 import { User } from "app/user.module";
 import { UsersService } from "app/users/users.service";
+import { Ticket } from "app/ticket.module";
 
 
 @Component({
@@ -29,11 +30,17 @@ export class CreateTicketComponent implements OnInit {
   createdBy: AbstractControl;
   assignedTo: AbstractControl;
 
-  constructor(fb: FormBuilder, private http1: Http, private usersService: UsersService) {
+  ticket: Ticket;
+  ticketService: CreateTicketService
+
+  constructor(fb: FormBuilder, private http1: Http, private usersService: UsersService, private ticketService1: CreateTicketService) {
     this.myForm = fb.group({
-      'name': [''],
-      'email': [''],
-      'type': ['']
+      'status': [''],
+      'area': [''],
+      'description': [''],
+      'customer': [''],
+      'createdBy': [''],
+      'assignedTo': [''],
     });
     this.status = this.myForm.controls['status'];
     this.area = this.myForm.controls['area'];
@@ -44,10 +51,27 @@ export class CreateTicketComponent implements OnInit {
     this.assignedTo = this.myForm.controls['assignedTo'];
 
     this.users = usersService.users;
+    this.ticketService = ticketService1;
+    this.ticket = new Ticket();
   }
 
 
   ngOnInit() {
+  }
+
+
+  onSubmit(value: string): void {
+    console.log('you submitted value: ', value);
+
+    this.ticket.status = this.status.value;
+    this.ticket.area = this.area.value;
+    this.ticket.description = this.description.value;
+    this.ticket.customer = this.customer.value;
+    this.ticket.createdBy = this.createdBy.value;
+    this.ticket.assignedTo = this.assignedTo.value;
+
+
+    this.ticketService.makePost(this.ticket);
   }
 
 }

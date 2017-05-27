@@ -19,7 +19,7 @@
       <label for="customerInput">Customer</label>
       <div>
         <select id="customer" placeholder="Customer" [formControl]="customer">
-          <option *ngFor="let individualUser of users" value=individualUser>{{individualUser.name}}</option>
+          <option *ngFor="let individualUser of users"  [ngValue]="individualUser">{{individualUser.name}}</option>
                 </select>
       </div>
     </div>
@@ -28,7 +28,7 @@
       <label for="createdByInput">Created By</label>
       <div>
         <select id="createdBy" placeholder="Created By" [formControl]="createdBy">
-                    <option *ngFor="let individualUser of users" value=individualUser>{{individualUser.name}}</option>
+                    <option *ngFor="let individualUser of users"  [ngValue]="individualUser">{{individualUser.name}}</option>
                 </select>
       </div>
     </div>
@@ -37,7 +37,7 @@
       <label for="assignedToInput">Assigned To</label>
       <div>
         <select id="assignedTo" placeholder="Assigned To" [formControl]="assignedTo">
-                     <option *ngFor="let individualUser of users" value=individualUser>{{individualUser.name}}</option>
+                     <option *ngFor="let individualUser of users" [ngValue]="individualUser">{{individualUser.name}}</option>
                 </select>
       </div>
     </div>

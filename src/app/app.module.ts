@@ -23,6 +23,7 @@ import { TicketComponent } from './ticket/ticket.component';
 import { UserComponent } from './user/user.component';
 import { UsersService } from './users/users.service';
 import { CreateUserService } from "app/create-user/create-user.service";
+import { CreateTicketService } from "app/create-ticket/create-ticket.service";
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -51,6 +52,7 @@ const routes: Routes = [
     { provide: LocationStrategy, useClass: HashLocationStrategy },
     UsersService,
     CreateUserService,
+    CreateTicketService,
   ],
   bootstrap: [AppComponent]
 })

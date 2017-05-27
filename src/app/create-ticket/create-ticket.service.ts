@@ -14,7 +14,7 @@ import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export class CreateUserTicket {
+export class CreateTicketService {
     http: Http;
     constructor(private http1: Http) {
         this.http = http1;
@@ -25,9 +25,9 @@ export class CreateUserTicket {
             status: ticket.status,
             area: ticket.area,
             description: ticket.description,
-            customer:ticket.customer,
-            createdBy:ticket.createdBy,
-            assignedTo:ticket.assignedTo
+            customer: ticket.customer,
+            createdBy: ticket.createdBy,
+            assignedTo: ticket.assignedTo
         }));
 
 
@@ -37,9 +37,9 @@ export class CreateUserTicket {
             status: ticket.status,
             area: ticket.area,
             description: ticket.description,
-            customer:ticket.customer,
-            createdBy:ticket.createdBy,
-            assignedTo:ticket.assignedTo
+            customer: this.convertToJson(ticket.customer),
+            createdBy: this.convertToJson(ticket.createdBy),
+            assignedTo: this.convertToJson(ticket.assignedTo)
         });
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
@@ -47,5 +47,18 @@ export class CreateUserTicket {
         this.http.post(url, body, options).subscribe((res: Response) => {
             console.log("Respose for create ticket " + res);
         });
+    }
+
+    private convertToJson(user: User): String {
+        console.log("You just said " + user.id);
+
+        let body = JSON.stringify({
+            id: user.id,
+            name: user.name,
+            email: user.email,
+            type: user.type
+        });
+
+        return body.toString();
     }
 }
