@@ -9,9 +9,9 @@ import {
 
 import { Http, Response } from '@angular/http';
 import { CreateTicketService } from "app/create-ticket/create-ticket.service";
-import { User } from "app/user.module";
+import { User } from "app/user/user.module";
 import { UsersService } from "app/users/users.service";
-import { Ticket } from "app/ticket.module";
+import { Ticket } from "app/ticket/ticket.module";
 
 
 @Component({

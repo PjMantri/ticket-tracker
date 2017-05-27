@@ -9,7 +9,7 @@ import {
 
 import { Http, Response } from '@angular/http';
 import { CreateUserService } from "app/create-user/create-user.service";
-import { User } from "app/user.module";
+import { User } from "app/user/user.module";
 
 @Component({
   selector: 'app-create-user',

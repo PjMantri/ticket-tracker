@@ -1,6 +1,6 @@
 
 
-import { User } from "./user.module";
+import { User } from "app/user/user.module";
 
 export class Ticket {
     status: string;

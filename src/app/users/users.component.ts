@@ -1,5 +1,4 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { User } from "app/user.module";
 import {
   HttpModule,
   Http,
@@ -8,6 +7,7 @@ import {
   Headers
 } from '@angular/http';
 import { UsersService } from "app/users/users.service";
+import { User } from "app/user/user.module";
 
 @Component({
   selector: 'app-users',
